@@ -1,0 +1,149 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.image-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eaeaea;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-section h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.scroll-container {
+    max-height: 500px; /* Adjust as needed */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.image-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-item img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.image-item img.selected {
+    border-color: #007bff;
+    transform: scale(1.05);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button[type="submit"] {
+    padding: 20px 40px;
+    font-size: 24px; 
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Center text within button */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+.result-container {
+    text-align: center;
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.result-container img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.probabilities {
+    margin-top: 20px;
+}
+
+.probabilities table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+    background-color: #f9f9f9;
+}
+
+.probabilities th, .probabilities td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.probabilities th {
+    background-color: #eaeaea;
+}
+
+.probabilities tr.highlight {
+    background-color: #d1ecf1; /* Light blue for highlighted row */
+    color: #0c5460; /* Darker blue text */
+}
+
+.highlight {
+    color: #007bff;
+    font-weight: bold;
+}

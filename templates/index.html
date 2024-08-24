@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 CT Scan Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>COVID-19 CT Scan Prediction</h1>
+    </header>
+
+    <main>
+        <div class="image-selection">
+            <h2>Select an Image for Prediction</h2>
+            <form action="/" method="POST">
+                <div class="image-container">
+                    {% for folder, images in image_folders.items() %}
+                        <div class="image-section">
+                            <h3>{{ folder }}</h3>
+                            <div class="scroll-container">
+                                {% for image in images %}
+                                    <div class="image-item">
+                                        <img src="{{ url_for('image_file', folder=folder, filename=image) }}" alt="{{ image }}" class="{% if image == selected_image %}selected{% endif %}" onclick="selectImage('{{ folder }}', '{{ image }}');">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <input type="hidden" id="folder" name="folder" value="">
+                <input type="hidden" id="selected_image" name="selected_image" value="">
+                <div class="button-container">
+                    <input type="submit" value="Predict">
+                </div>
+            </form>
+        </div>
+
+        {% if show_results %}
+            <div class="result-container">
+                <h2>Prediction: <span class="highlight">{{ prediction }}</span></h2>
+                <img src="{{ url_for('image_file', folder=selected_folder, filename=img_path.split('/')[-1]) }}" alt="Selected Image">
+                <div class="probabilities">
+                    <h3>Class Probabilities</h3>
+                    <table>
+                        <tr>
+                            <th>Class</th>
+                            <th>Probability</th>
+                            <th>Description</th>
+                        </tr>
+                        {% for class_name, (probability, description) in probabilities.items() %}
+                            <tr class="{% if class_name == prediction %}highlight{% endif %}">
+                                <td>{{ class_name }}</td>
+                                <td>{{ "{:.2f}".format(probability * 100) }}%</td>
+                                <td>{{ description }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        {% endif %}
+    </main>
+
+    <script>
+        function selectImage(folder, image) {
+            document.getElementById('folder').value = folder;
+            document.getElementById('selected_image').value = image;
+            document.querySelectorAll('.image-item img').forEach(img => img.classList.remove('selected'));
+            event.target.classList.add('selected');
+        }
+    </script>
+</body>
+</html>
