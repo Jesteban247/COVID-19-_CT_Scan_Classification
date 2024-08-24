@@ -60,13 +60,17 @@ To train and evaluate the model, refer to the Jupyter notebooks (`.ipynb` files)
 
 The web application offers an easy-to-use interface for uploading CT scans and obtaining predictions. It includes a scrollable gallery to display images and prediction results.
 
-**[🎥 Video Demonstration Coming Soon]**
+
+https://github.com/user-attachments/assets/df483671-2634-4cea-95c6-5ef6f38a0e08
+
 
 ## 📊 MLflow and DagsHub Integration
 
 This project integrates with MLflow and DagsHub to track and log experiment data. Metrics such as accuracy, loss, precision, recall, and F1-score are recorded for comprehensive performance analysis.
 
-**[⚙️ Instructions for MLflow and DagsHub Setup Coming Soon]**
+
+https://github.com/user-attachments/assets/9bc57f51-d4fb-4b04-83ec-68e8e59dcdaa
+
 
 ## 🔮 Future Work
 
